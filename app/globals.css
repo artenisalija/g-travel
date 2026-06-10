@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------------- */
+/* Design tokens. Tailwind v4 turns these into utilities:                    */
+/*   --color-ink  -> text-ink / bg-ink / border-ink                          */
+/*   --font-display -> font-display, --text-title -> text-title, etc.         */
+/* ------------------------------------------------------------------------- */
+@theme {
+  /* Surfaces & ink */
+  --color-ivory: #faf8f4;
+  --color-paper: #ffffff;
+  --color-ink: #14110d;
+  --color-ink-soft: #2e2a24;
+  --color-muted: #6f685e;
+  --color-faint: #9a9389;
+  --color-line: #e7e1d5;
+  --color-line-strong: #d6cebf;
+
+  /* Accent — platinum-gold, used sparingly */
+  --color-gold: #a1894f;
+  --color-gold-soft: #c2ad7e;
+  --color-gold-wash: #f3eee2;
+
+  /* The fifth colour — a "bright dark" emerald-teal. Footer, pre-scroll header,
+     and one full-bleed band. Pairs with gold + ivory. */
+  --color-deep: #0f3a31;
+  --color-deep-2: #0a2a23;
+
+  /* Type families (loaded via <link> in app/[lang]/layout.tsx) */
+  --font-display: "Bodoni Moda", "Times New Roman", Georgia, serif;
+  --font-sans: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+
+  /* Fluid editorial type scale */
+  --text-eyebrow: 0.72rem;
+  --text-eyebrow--line-height: 1;
+  --text-display: clamp(2.9rem, 6.4vw, 5.6rem);
+  --text-display--line-height: 1.01;
+  --text-title: clamp(2rem, 3.8vw, 3.4rem);
+  --text-title--line-height: 1.07;
+  --text-headline: clamp(1.5rem, 2.4vw, 2.2rem);
+  --text-headline--line-height: 1.12;
+  --text-lede: clamp(1.12rem, 1.55vw, 1.4rem);
+  --text-lede--line-height: 1.5;
+  --text-body: 1.075rem;
+  --text-body--line-height: 1.78;
+
+  /* Motion */
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Layout */
+  --spacing-edge: clamp(1.25rem, 5vw, 5rem);
+}
+
+/* ------------------------------------------------------------------------- */
+/* Base layer                                                                */
+/* ------------------------------------------------------------------------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    /* Kill any stray horizontal scroll/white strip from full-bleed elements.
+       `clip` (not `hidden`) does not create a scroll container, so the sticky
+       header keeps working. */
+    overflow-x: clip;
+  }
+
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: var(--color-ink);
+    color: var(--color-ivory);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+
+  /* Respect users who ask for less motion. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------- */
+/* Reusable editorial primitives                                             */
+/* ------------------------------------------------------------------------- */
+@layer components {
+  /* Keyboard-only skip link — hidden until focused. */
+  .skip-link {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 100;
+    transform: translateY(-150%);
+    background: var(--color-ink);
+    color: var(--color-ivory);
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    border-radius: 2px;
+    transition: transform 0.25s var(--ease-editorial);
+  }
+  .skip-link:focus-visible {
+    transform: translateY(0);
+  }
+
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: var(--text-eyebrow);
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+
+  .eyebrow-muted {
+    color: var(--color-muted);
+  }
+
+  .rule {
+    height: 1px;
+    width: 100%;
+    background: var(--color-line);
+  }
+
+  /* Inline article links inside running text. */
+  .prose-link {
+    color: var(--color-ink);
+    text-decoration: none;
+    background-image: linear-gradient(var(--color-gold), var(--color-gold));
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    transition: background-size 0.4s var(--ease-editorial), color 0.3s ease;
+    padding-bottom: 1px;
+  }
+  .prose-link:hover {
+    color: var(--color-gold);
+    background-size: 100% 100%;
+    background-image: linear-gradient(var(--color-gold-wash), var(--color-gold-wash));
+  }
+
+  /* A whisper of grain for the hero — adds analogue depth on flat ivory. */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* ------------------------------------------------------------------------- */
+/* Utilities                                                                 */
+/* ------------------------------------------------------------------------- */
+@layer utilities {
+  /* Full-bleed page gutter used by every section. */
+  .px-edge {
+    padding-left: var(--spacing-edge);
+    padding-right: var(--spacing-edge);
+  }
+
+  .hanging-figures {
+    font-variant-numeric: oldstyle-nums;
+  }
+
+  /* Hide content visually but keep it for screen readers. */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
