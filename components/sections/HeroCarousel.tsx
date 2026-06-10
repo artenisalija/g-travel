@@ -80,7 +80,7 @@ export function HeroCarousel({ slides, lang, dict }: HeroCarouselProps) {
         <div className="relative z-10 order-1 px-edge pb-14 pt-16 lg:flex lg:min-h-[max(52svh,440px)] lg:w-[46%] lg:flex-col lg:justify-center lg:py-10">
           <motion.h1
             {...intro(0.05)}
-            className="font-display text-display font-medium uppercase leading-[1.02] tracking-[0.01em]"
+            className="font-display text-display font-medium uppercase leading-[1.02] tracking-[0.01em] text-gold"
           >
             {dict.hero.titleA}
             <br />
@@ -103,7 +103,7 @@ export function HeroCarousel({ slides, lang, dict }: HeroCarouselProps) {
           <motion.div {...intro(0.45)} className="mt-8">
             <Link
               href="#latest"
-              className="inline-block bg-ink px-9 py-4 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-ivory transition-colors duration-300 hover:bg-deep"
+              className="inline-block bg-ink px-9 py-4 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-ivory transition-colors duration-300 hover:bg-gold"
             >
               {dict.hero.cta}
             </Link>

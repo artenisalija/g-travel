@@ -24,10 +24,10 @@
   --color-gold-soft: #c2ad7e;
   --color-gold-wash: #f3eee2;
 
-  /* The fifth colour — a deep royal purple. Footer and one full-bleed band.
-     Pairs with gold + ivory. */
-  --color-deep: #3b2160;
-  --color-deep-2: #281543;
+  /* The dark surface — near-black ink. Footer and one full-bleed band.
+     Pairs with gold + ivory + beige. */
+  --color-deep: #14110d;
+  --color-deep-2: #0a0805;
 
   /* Type families (loaded via <link> in app/[lang]/layout.tsx).
      Playfair Display: high-contrast bracketed serifs for the editorial voice.

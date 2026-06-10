@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BrandMark } from "@/components/chrome/BrandMark";
 import { LanguageSwitcher } from "@/components/chrome/LanguageSwitcher";
@@ -25,6 +26,25 @@ export function SiteHeader({ lang, dict, searchIndex }: SiteHeaderProps) {
   const [searchOpen, setSearchOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const reduce = useReducedMotion();
+  const pathname = usePathname();
+  const isHome = pathname?.replace(/\/$/, "") === homeHref(lang);
+
+  // The masthead menu: Home, the six pillars, Albania, Events, Contact.
+  const navItems = [
+    { label: dict.nav.home, href: homeHref(lang), active: isHome },
+    ...CATEGORY_ORDER.map((category) => ({
+      label: dict.categories[category],
+      href: topicAnchor(lang, category),
+      active: false,
+    })),
+    {
+      label: dict.locationsLabels.albania,
+      href: locationAnchor(lang, "albania"),
+      active: false,
+    },
+    { label: dict.nav.events, href: `${homeHref(lang)}#events`, active: false },
+    { label: dict.nav.contact, href: "#contact", active: false },
+  ];
 
   // The hero is ivory, so the header stays a light bar with ink text
   // throughout — matching the magazine's white masthead.
@@ -63,27 +83,30 @@ export function SiteHeader({ lang, dict, searchIndex }: SiteHeaderProps) {
               className={cn("flex items-center gap-3 transition-colors", brandColor)}
             >
               <BrandMark className="h-9 w-9 md:h-10 md:w-10" />
-              <span className="hidden text-[0.62rem] font-semibold uppercase leading-[1.6] tracking-[0.3em] sm:block">
+              <span className="hidden text-[0.62rem] font-semibold uppercase leading-[1.6] tracking-[0.3em] text-gold sm:block lg:hidden xl:block">
                 {dict.hero.titleA} {dict.hero.titleB}
               </span>
             </Link>
           </div>
 
-          {/* Center: topic nav (desktop) */}
+          {/* Center: section nav (desktop) */}
           <nav
             aria-label={dict.nav.sections}
-            className="hidden items-center gap-6 lg:flex"
+            className="hidden items-center gap-5 lg:flex xl:gap-6"
           >
-            {CATEGORY_ORDER.map((category) => (
+            {navItems.map((item) => (
               <Link
-                key={category}
-                href={topicAnchor(lang, category)}
+                key={item.label}
+                href={item.href}
+                aria-current={item.active ? "page" : undefined}
                 className={cn(
-                  "text-[0.78rem] uppercase tracking-[0.13em] transition-colors",
-                  navColor,
+                  "border-b pb-1 text-[0.72rem] uppercase tracking-[0.12em] transition-colors",
+                  item.active
+                    ? "border-gold text-ink"
+                    : cn("border-transparent", navColor),
                 )}
               >
-                {dict.categories[category]}
+                {item.label}
               </Link>
             ))}
           </nav>
@@ -123,14 +146,14 @@ export function SiteHeader({ lang, dict, searchIndex }: SiteHeaderProps) {
             <nav aria-label={dict.nav.sections}>
               <p className="eyebrow">{dict.nav.sections}</p>
               <ul className="mt-4 flex flex-col">
-                {CATEGORY_ORDER.map((category) => (
-                  <li key={category}>
+                {navItems.map((item) => (
+                  <li key={item.label}>
                     <Link
-                      href={topicAnchor(lang, category)}
+                      href={item.href}
                       onClick={() => setMenuOpen(false)}
                       className="block border-b border-line py-3 font-display text-2xl text-ink"
                     >
-                      {dict.categories[category]}
+                      {item.label}
                     </Link>
                   </li>
                 ))}

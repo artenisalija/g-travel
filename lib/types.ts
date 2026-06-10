@@ -10,12 +10,12 @@ export const LANGS: Lang[] = ["en", "sq"];
 
 /** Editorial topics. The string values double as URL-friendly slugs. */
 export type Category =
-  | "travel"
-  | "hotels"
-  | "dining"
-  | "design"
-  | "lifestyle"
-  | "real-estate";
+  | "air"
+  | "land"
+  | "water"
+  | "taste"
+  | "people"
+  | "insights";
 
 /** Editorial destinations. The string values double as URL-friendly slugs. */
 export type Location =

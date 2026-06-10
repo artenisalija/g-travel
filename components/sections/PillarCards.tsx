@@ -16,31 +16,30 @@ interface Pillar {
   Icon: (props: { className?: string }) => React.ReactElement;
 }
 
-const u = (id: string) => assetPath(`/images/${id}.jpg`);
-
+// Pillar photography is supplied by the brand — see public/images/pillar-*.jpg.
 const PILLARS: Pillar[] = [
   {
     key: "air",
-    category: "travel",
-    image: u("photo-1436491865332-7a61a109cc05"),
+    category: "air",
+    image: assetPath("/images/pillar-air.jpg"),
     Icon: PlaneIcon,
   },
   {
     key: "land",
-    category: "hotels",
-    image: u("photo-1516483638261-f4dbaf036963"),
+    category: "land",
+    image: assetPath("/images/pillar-land.jpg"),
     Icon: ArchIcon,
   },
   {
     key: "water",
-    category: "lifestyle",
-    image: u("photo-1567899378494-47b22a2ae96a"),
+    category: "water",
+    image: assetPath("/images/pillar-water.jpg"),
     Icon: WavesIcon,
   },
   {
     key: "taste",
-    category: "dining",
-    image: u("photo-1414235077428-338989a2e8c0"),
+    category: "taste",
+    image: assetPath("/images/pillar-taste.jpg"),
     Icon: ClocheIcon,
   },
 ];

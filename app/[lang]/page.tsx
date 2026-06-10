@@ -3,6 +3,7 @@ import { HeroCarousel, type HeroSlide } from "@/components/sections/HeroCarousel
 import { PillarCards } from "@/components/sections/PillarCards";
 import { QuotesBand } from "@/components/sections/QuotesBand";
 import { LatestGrid } from "@/components/sections/LatestGrid";
+import { VideoSection } from "@/components/sections/VideoSection";
 import { TopicsScroller } from "@/components/sections/TopicsScroller";
 import { TopicSection } from "@/components/sections/TopicSection";
 import { StatementBand } from "@/components/sections/StatementBand";
@@ -96,6 +97,10 @@ export default async function HomePage({
           />
         );
       })}
+
+      {/* Events & Film — the YouTube band closing the page, anchored from
+          the menu */}
+      <VideoSection dict={dict} />
     </>
   );
 }

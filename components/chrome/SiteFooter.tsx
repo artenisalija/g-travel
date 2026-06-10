@@ -10,7 +10,7 @@ export function SiteFooter({ lang, dict }: { lang: Lang; dict: Dictionary }) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-deep px-edge pb-12 pt-16 text-ivory md:pt-20">
+    <footer id="contact" className="scroll-mt-20 bg-deep px-edge pb-12 pt-16 text-ivory md:pt-20">
       <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
         <div className="md:col-span-5">
           <Link
@@ -18,7 +18,7 @@ export function SiteFooter({ lang, dict }: { lang: Lang; dict: Dictionary }) {
             className="flex items-center gap-4 text-ivory"
           >
             <BrandMark className="h-12 w-12" />
-            <span className="text-[0.68rem] font-semibold uppercase leading-[1.7] tracking-[0.3em]">
+            <span className="text-[0.68rem] font-semibold uppercase leading-[1.7] tracking-[0.3em] text-gold-soft">
               {dict.hero.titleA}
               <br />
               {dict.hero.titleB}

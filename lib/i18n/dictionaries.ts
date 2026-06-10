@@ -18,6 +18,15 @@ export interface Dictionary {
     skipToContent: string;
     language: string;
     home: string;
+    events: string;
+    contact: string;
+  };
+  video: {
+    kicker: string;
+    title: string;
+    intro: string;
+    watch: string;
+    soon: string;
   };
   hero: {
     eyebrow: string;
@@ -96,6 +105,15 @@ const en: Dictionary = {
     skipToContent: "Skip to content",
     language: "Language",
     home: "Home",
+    events: "Events",
+    contact: "Contact",
+  },
+  video: {
+    kicker: "Events & Film",
+    title: "Travel with Style, in Motion",
+    intro: "Moments, places and gatherings — fresh from our YouTube channel.",
+    watch: "Watch on YouTube",
+    soon: "Our first film is on its way.",
   },
   hero: {
     eyebrow: "The Featured Story",
@@ -187,12 +205,12 @@ const en: Dictionary = {
   manifesto:
     "We believe the best journeys are the unhurried ones — chosen with care, savoured slowly, and worth the long way round.",
   categories: {
-    travel: "Travel",
-    hotels: "Hotels",
-    dining: "Dining",
-    design: "Design",
-    lifestyle: "Lifestyle",
-    "real-estate": "Real Estate",
+    air: "Air",
+    land: "Land",
+    water: "Water",
+    taste: "Taste",
+    people: "People",
+    insights: "Insights",
   },
   locationsLabels: {
     europe: "Europe",
@@ -203,12 +221,12 @@ const en: Dictionary = {
     global: "Global",
   },
   topicBlurbs: {
-    travel: "Journeys with intent — the routes, seasons and hours worth planning for.",
-    hotels: "Rooms with a point of view, from grand dames to quiet new arrivals.",
-    dining: "Where taste is being rewritten, one confident kitchen at a time.",
-    design: "Interiors, objects and the people quietly shaping how we live.",
-    lifestyle: "The rituals of living well, on the road and at altitude.",
-    "real-estate": "The addresses changing hands and the lives behind the gates.",
+    air: "Aviation, private jets and city escapes — the journey above the journey.",
+    land: "Destinations, hotels, culture and the road trips worth the detour.",
+    water: "Yachting, cruises and island experiences, savoured slowly.",
+    taste: "Fine dining, wine and culinary journeys, one confident kitchen at a time.",
+    people: "The travellers, hosts and makers who inspire the way we explore.",
+    insights: "Essays, interiors and ideas quietly shaping how we move through the world.",
   },
   locationBlurbs: {
     europe: "The old continent, read closely — its coasts, capitals and quiet corners.",
@@ -240,6 +258,15 @@ const sq: Dictionary = {
     skipToContent: "Kalo te përmbajtja",
     language: "Gjuha",
     home: "Ballina",
+    events: "Aktivitete",
+    contact: "Kontakt",
+  },
+  video: {
+    kicker: "Aktivitete & Film",
+    title: "Udhëto me Stil, në Lëvizje",
+    intro: "Momente, vende dhe takime — direkt nga kanali ynë në YouTube.",
+    watch: "Shiko në YouTube",
+    soon: "Filmi ynë i parë është rrugës.",
   },
   hero: {
     eyebrow: "Artikulli i Zgjedhur",
@@ -330,12 +357,12 @@ const sq: Dictionary = {
   manifesto:
     "Besojmë se udhëtimet më të mira janë ato pa nxitim — të zgjedhura me kujdes, të shijuara ngadalë dhe që ia vlejnë rrugën e gjatë.",
   categories: {
-    travel: "Udhëtime",
-    hotels: "Hotele",
-    dining: "Gastronomi",
-    design: "Dizajn",
-    lifestyle: "Stil Jete",
-    "real-estate": "Pasuri të Patundshme",
+    air: "Ajër",
+    land: "Tokë",
+    water: "Ujë",
+    taste: "Shije",
+    people: "Njerëz",
+    insights: "Vështrime",
   },
   locationsLabels: {
     europe: "Evropa",
@@ -346,12 +373,12 @@ const sq: Dictionary = {
     global: "Globale",
   },
   topicBlurbs: {
-    travel: "Udhëtime me qëllim — rrugët, stinët dhe orët që ia vlen t'i planifikosh.",
-    hotels: "Dhoma me një këndvështrim, nga zonjat e mëdha te ardhjet e reja të qeta.",
-    dining: "Aty ku shija po rishkruhet, një kuzhinë e sigurt pas tjetrës.",
-    design: "Brendësi, objekte dhe njerëzit që po formësojnë në heshtje si jetojmë.",
-    lifestyle: "Ritualet e të jetuarit mirë, në udhëtim dhe në lartësi.",
-    "real-estate": "Adresat që ndërrojnë duar dhe jetët pas portave.",
+    air: "Aviacion, avionë privatë dhe arratisje urbane — udhëtimi mbi udhëtim.",
+    land: "Destinacione, hotele, kulturë dhe udhëtimet rrugore që ia vlejnë devijimin.",
+    water: "Jahte, lundrime dhe përvoja ishujsh, të shijuara ngadalë.",
+    taste: "Gastronomi e lartë, verë dhe udhëtime kulinarie, një kuzhinë e sigurt pas tjetrës.",
+    people: "Udhëtarët, mikpritësit dhe krijuesit që frymëzojnë mënyrën si eksplorojmë.",
+    insights: "Ese, brendësi dhe ide që formësojnë në heshtje si lëvizim nëpër botë.",
   },
   locationBlurbs: {
     europe: "Kontinenti i vjetër, lexuar nga afër — bregdetet, kryeqytetet dhe cepat e qetë.",

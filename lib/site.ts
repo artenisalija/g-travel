@@ -21,6 +21,14 @@ export const SITE_DESCRIPTION: Record<Lang, string> = {
   sq: "Një revistë luksi udhëtimi dygjuhëshe — ku të shkosh, ku të rrish dhe si të jetosh mirë në udhëtim.",
 };
 
+/**
+ * YouTube — fill these in to light up the Events & Film section.
+ * VIDEO id is the 11-character id from a watch URL (youtube.com/watch?v=XXXX).
+ * While the id is empty the section shows an elegant placeholder instead.
+ */
+export const YOUTUBE_CHANNEL_URL = "https://www.youtube.com/watch?v=Fr8LTqUg5pQ";
+export const YOUTUBE_VIDEO_ID = "Fr8LTqUg5pQ";
+
 /** Default social-share image used when an article has none of its own. */
 export const DEFAULT_OG_IMAGE =
   "/images/photo-1533105079780-92b9be482077.jpg";

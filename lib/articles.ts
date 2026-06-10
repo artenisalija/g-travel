@@ -43,7 +43,7 @@ export const articles: Article[] = [
   {
     id: "a1",
     slug: "amalfi-coast-slow-summer",
-    category: "travel",
+    category: "air",
     location: "italy",
     author: AUTHORS.eleonora,
     date: "2026-05-28",
@@ -146,7 +146,7 @@ export const articles: Article[] = [
   {
     id: "a2",
     slug: "cap-eden-roc-riviera",
-    category: "hotels",
+    category: "land",
     location: "europe",
     author: AUTHORS.marcus,
     date: "2026-05-20",
@@ -224,7 +224,7 @@ export const articles: Article[] = [
   {
     id: "a3",
     slug: "tirana-new-table",
-    category: "dining",
+    category: "taste",
     location: "albania",
     author: AUTHORS.dardan,
     date: "2026-05-12",
@@ -306,7 +306,7 @@ export const articles: Article[] = [
   {
     id: "a4",
     slug: "milan-quiet-design",
-    category: "design",
+    category: "insights",
     location: "italy",
     author: AUTHORS.sofia,
     date: "2026-05-04",
@@ -378,7 +378,7 @@ export const articles: Article[] = [
   {
     id: "a5",
     slug: "cycladic-stone-villas",
-    category: "real-estate",
+    category: "people",
     location: "greece",
     author: AUTHORS.sofia,
     date: "2026-04-26",
@@ -450,7 +450,7 @@ export const articles: Article[] = [
   {
     id: "a6",
     slug: "dubai-vertical-living",
-    category: "lifestyle",
+    category: "water",
     location: "dubai",
     author: AUTHORS.lara,
     date: "2026-04-18",
@@ -518,7 +518,7 @@ export const articles: Article[] = [
   {
     id: "a7",
     slug: "albanian-riviera-awakening",
-    category: "travel",
+    category: "air",
     location: "albania",
     author: AUTHORS.marcus,
     date: "2026-04-09",
@@ -596,7 +596,7 @@ export const articles: Article[] = [
   {
     id: "a8",
     slug: "santorini-cave-suites",
-    category: "hotels",
+    category: "land",
     location: "greece",
     author: AUTHORS.eleonora,
     date: "2026-03-30",
@@ -668,7 +668,7 @@ export const articles: Article[] = [
   {
     id: "a9",
     slug: "paris-tables-to-know",
-    category: "dining",
+    category: "taste",
     location: "europe",
     author: AUTHORS.dardan,
     date: "2026-03-21",
@@ -740,7 +740,7 @@ export const articles: Article[] = [
   {
     id: "a10",
     slug: "nordic-light-interiors",
-    category: "design",
+    category: "insights",
     location: "global",
     author: AUTHORS.sofia,
     date: "2026-03-11",
@@ -812,7 +812,7 @@ export const articles: Article[] = [
   {
     id: "a11",
     slug: "lake-como-estates",
-    category: "real-estate",
+    category: "people",
     location: "italy",
     author: AUTHORS.eleonora,
     date: "2026-02-28",
@@ -884,7 +884,7 @@ export const articles: Article[] = [
   {
     id: "a12",
     slug: "desert-wellness-retreats",
-    category: "lifestyle",
+    category: "water",
     location: "dubai",
     author: AUTHORS.lara,
     date: "2026-02-16",
@@ -956,7 +956,7 @@ export const articles: Article[] = [
   {
     id: "a13",
     slug: "private-islands-global",
-    category: "travel",
+    category: "air",
     location: "global",
     author: AUTHORS.marcus,
     date: "2026-02-02",
@@ -1028,7 +1028,7 @@ export const articles: Article[] = [
   {
     id: "a14",
     slug: "london-garden-townhouses",
-    category: "real-estate",
+    category: "people",
     location: "europe",
     author: AUTHORS.eleonora,
     date: "2026-01-22",
