@@ -3,6 +3,7 @@
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { BrandMark } from "@/components/chrome/BrandMark";
 import { LanguageSwitcher } from "@/components/chrome/LanguageSwitcher";
 import {
   SearchOverlay,
@@ -21,30 +22,16 @@ interface SiteHeaderProps {
 }
 
 export function SiteHeader({ lang, dict, searchIndex }: SiteHeaderProps) {
-  const [scrolled, setScrolled] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const reduce = useReducedMotion();
 
-  // Before scrolling the header rides on the deep brand colour with light text
-  // (legible over the hero); once scrolled it turns to the ivory bar with ink.
-  const overlay = !scrolled && !menuOpen;
-
-  const brandColor = overlay ? "text-ivory" : "text-ink";
-  const navColor = overlay
-    ? "text-ivory/75 hover:text-ivory"
-    : "text-muted hover:text-ink";
-  const iconColor = overlay
-    ? "text-ivory/85 hover:text-ivory"
-    : "text-muted hover:text-ink";
-  const dividerColor = overlay ? "bg-ivory/30" : "bg-line-strong";
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  // The hero is ivory, so the header stays a light bar with ink text
+  // throughout — matching the magazine's white masthead.
+  const brandColor = "text-ink";
+  const navColor = "text-muted hover:text-ink";
+  const iconColor = "text-muted hover:text-ink";
+  const dividerColor = "bg-line-strong";
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -55,14 +42,7 @@ export function SiteHeader({ lang, dict, searchIndex }: SiteHeaderProps) {
 
   return (
     <header className="sticky top-0 z-50">
-      <div
-        className={cn(
-          "transition-colors duration-500",
-          overlay
-            ? "border-b border-transparent bg-deep/95 backdrop-blur-sm"
-            : "border-b border-line bg-ivory/85 backdrop-blur-md",
-        )}
-      >
+      <div className="border-b border-line bg-ivory/90 backdrop-blur-md">
         <div className="flex h-16 items-center justify-between gap-4 px-edge md:h-20">
           {/* Left: menu toggle + wordmark */}
           <div className="flex items-center gap-3">
@@ -80,12 +60,12 @@ export function SiteHeader({ lang, dict, searchIndex }: SiteHeaderProps) {
             </button>
             <Link
               href={homeHref(lang)}
-              className={cn(
-                "font-display text-xl font-medium tracking-tight transition-colors md:text-2xl",
-                brandColor,
-              )}
+              className={cn("flex items-center gap-3 transition-colors", brandColor)}
             >
-              {dict.brand.name}
+              <BrandMark className="h-9 w-9 md:h-10 md:w-10" />
+              <span className="hidden text-[0.62rem] font-semibold uppercase leading-[1.6] tracking-[0.3em] sm:block">
+                {dict.hero.titleA} {dict.hero.titleB}
+              </span>
             </Link>
           </div>
 
@@ -125,7 +105,7 @@ export function SiteHeader({ lang, dict, searchIndex }: SiteHeaderProps) {
               </span>
             </button>
             <span aria-hidden="true" className={cn("h-4 w-px", dividerColor)} />
-            <LanguageSwitcher current={lang} tone={overlay ? "light" : "default"} />
+            <LanguageSwitcher current={lang} tone="default" />
           </div>
         </div>
       </div>

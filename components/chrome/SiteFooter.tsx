@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandMark } from "@/components/chrome/BrandMark";
 import { LanguageSwitcher } from "@/components/chrome/LanguageSwitcher";
 import type { Dictionary } from "@/lib/i18n/dictionaries";
 import { homeHref, locationAnchor, topicAnchor } from "@/lib/links";
@@ -14,9 +15,14 @@ export function SiteFooter({ lang, dict }: { lang: Lang; dict: Dictionary }) {
         <div className="md:col-span-5">
           <Link
             href={homeHref(lang)}
-            className="font-display text-3xl font-medium tracking-tight text-ivory"
+            className="flex items-center gap-4 text-ivory"
           >
-            {dict.brand.name}
+            <BrandMark className="h-12 w-12" />
+            <span className="text-[0.68rem] font-semibold uppercase leading-[1.7] tracking-[0.3em]">
+              {dict.hero.titleA}
+              <br />
+              {dict.hero.titleB}
+            </span>
           </Link>
           <p className="mt-5 max-w-sm leading-relaxed text-ivory/70">
             {dict.footer.statement}

@@ -5,6 +5,15 @@ export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
 ).replace(/\/$/, "");
 
+/**
+ * Deployment base path (e.g. "/repo-name" on GitHub Pages). next/image with
+ * `unoptimized` does not prepend basePath to src, so local assets referenced
+ * from data/components must go through this helper.
+ */
+export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+export const assetPath = (path: string) => `${BASE_PATH}${path}`;
+
 export const SITE_NAME = "G·Travel";
 
 export const SITE_DESCRIPTION: Record<Lang, string> = {
@@ -14,7 +23,7 @@ export const SITE_DESCRIPTION: Record<Lang, string> = {
 
 /** Default social-share image used when an article has none of its own. */
 export const DEFAULT_OG_IMAGE =
-  "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80";
+  "/images/photo-1533105079780-92b9be482077.jpg";
 
 export function absoluteUrl(path: string): string {
   if (/^https?:\/\//.test(path)) return path;

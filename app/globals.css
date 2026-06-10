@@ -13,27 +13,32 @@
   --color-ink-soft: #2e2a24;
   --color-muted: #6f685e;
   --color-faint: #9a9389;
-  --color-line: #e7e1d5;
-  --color-line-strong: #d6cebf;
+  --color-line: #e0d5bd;
+  --color-line-strong: #ccbd9c;
+
+  /* Beige — the separation colour. Section bands and gaps between tiles. */
+  --color-beige: #f0e9d8;
 
   /* Accent — platinum-gold, used sparingly */
   --color-gold: #a1894f;
   --color-gold-soft: #c2ad7e;
   --color-gold-wash: #f3eee2;
 
-  /* The fifth colour — a "bright dark" emerald-teal. Footer, pre-scroll header,
-     and one full-bleed band. Pairs with gold + ivory. */
-  --color-deep: #0f3a31;
-  --color-deep-2: #0a2a23;
+  /* The fifth colour — a deep royal purple. Footer and one full-bleed band.
+     Pairs with gold + ivory. */
+  --color-deep: #3b2160;
+  --color-deep-2: #281543;
 
-  /* Type families (loaded via <link> in app/[lang]/layout.tsx) */
-  --font-display: "Bodoni Moda", "Times New Roman", Georgia, serif;
-  --font-sans: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+  /* Type families (loaded via <link> in app/[lang]/layout.tsx).
+     Playfair Display: high-contrast bracketed serifs for the editorial voice.
+     Jost: geometric, slightly rounded sans for chrome, captions and body. */
+  --font-display: "Playfair Display", "Times New Roman", Georgia, serif;
+  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
 
   /* Fluid editorial type scale */
   --text-eyebrow: 0.72rem;
   --text-eyebrow--line-height: 1;
-  --text-display: clamp(2.9rem, 6.4vw, 5.6rem);
+  --text-display: clamp(2.5rem, 4.6vw, 4.2rem);
   --text-display--line-height: 1.01;
   --text-title: clamp(2rem, 3.8vw, 3.4rem);
   --text-title--line-height: 1.07;

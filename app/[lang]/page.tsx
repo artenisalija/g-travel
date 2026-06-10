@@ -1,5 +1,7 @@
 import { notFound } from "next/navigation";
 import { HeroCarousel, type HeroSlide } from "@/components/sections/HeroCarousel";
+import { PillarCards } from "@/components/sections/PillarCards";
+import { QuotesBand } from "@/components/sections/QuotesBand";
 import { LatestGrid } from "@/components/sections/LatestGrid";
 import { TopicsScroller } from "@/components/sections/TopicsScroller";
 import { TopicSection } from "@/components/sections/TopicSection";
@@ -49,7 +51,11 @@ export default async function HomePage({
 
   return (
     <>
+      {/* The hero suite: split masthead carousel, the four pillars, then the
+          quote band — one continuous opening statement. */}
       <HeroCarousel slides={heroSlides} lang={l} dict={dict} />
+      <PillarCards lang={l} dict={dict} />
+      <QuotesBand dict={dict} />
 
       <LatestGrid articles={latest} lang={l} dict={dict} />
 

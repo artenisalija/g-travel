@@ -5,13 +5,15 @@ import type { Article, Author } from "@/lib/types";
 // language `i18n` map (en + sq). To add a translation, fill the matching
 // language object — TypeScript will flag any missing keys.
 //
-// Images are Unsplash URLs (configured in next.config remotePatterns). Swap a
-// `src` to change the photography; everything else is plain data.
+// Images are self-hosted in public/images (downloaded from Unsplash once) so
+// the site never depends on a third-party CDN at view time. Drop a new file
+// in public/images and reference its id here to change the photography.
 // ---------------------------------------------------------------------------
 
-/** Build a sized, auto-formatted Unsplash URL from a photo id. */
-const u = (id: string, w = 1600) =>
-  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
+import { assetPath } from "@/lib/site";
+
+/** Resolve a photo id to its self-hosted file. */
+const u = (id: string) => assetPath(`/images/${id}.jpg`);
 
 const AUTHORS = {
   eleonora: {

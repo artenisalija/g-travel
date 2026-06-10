@@ -14,8 +14,9 @@ interface LatestGridProps {
 export function LatestGrid({ articles, lang, dict }: LatestGridProps) {
   return (
     <section
+      id="latest"
       aria-labelledby="latest-heading"
-      className="border-t border-line px-edge py-16 md:py-24"
+      className="border-t border-line px-edge py-16 md:py-24 scroll-mt-20"
     >
       <SectionHeading
         kicker={dict.latest.kicker}

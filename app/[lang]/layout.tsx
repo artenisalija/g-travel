@@ -9,6 +9,7 @@ import type { Lang } from "@/lib/types";
 import { SiteHeader } from "@/components/chrome/SiteHeader";
 import { SiteFooter } from "@/components/chrome/SiteFooter";
 import { PageTransition } from "@/components/motion/PageTransition";
+import { ScrollJourney } from "@/components/motion/ScrollJourney";
 
 export function generateStaticParams() {
   return LOCALES.map((lang) => ({ lang }));
@@ -79,7 +80,7 @@ export default async function LangLayout({
         />
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Hanken+Grotesk:wght@300..700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..800&family=Jost:ital,wght@0,300..700;1,300..600&display=swap"
         />
       </head>
       <body>
@@ -87,6 +88,7 @@ export default async function LangLayout({
           {dict.nav.skipToContent}
         </a>
         <SiteHeader lang={lang} dict={dict} searchIndex={searchIndex} />
+        <ScrollJourney />
         <PageTransition>
           <main id="main">{children}</main>
         </PageTransition>

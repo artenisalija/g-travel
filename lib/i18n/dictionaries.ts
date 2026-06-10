@@ -27,7 +27,18 @@ export interface Dictionary {
     nextSlide: string;
     goToSlide: string;
     scroll: string;
+    /** The two stacked headline lines, e.g. "Travel" / "with Style". */
+    titleA: string;
+    titleB: string;
+    tagline: string;
+    cta: string;
+    featured: string;
   };
+  pillars: Record<
+    "air" | "land" | "water" | "taste",
+    { title: string; blurb: string }
+  >;
+  quotes: { left: string; about: string; right: string };
   latest: { kicker: string; title: string; intro: string };
   topics: { kicker: string; title: string; intro: string; viewAll: string };
   locations: { kicker: string; title: string; intro: string };
@@ -94,6 +105,36 @@ const en: Dictionary = {
     nextSlide: "Next story",
     goToSlide: "Go to story",
     scroll: "Scroll",
+    titleA: "Travel",
+    titleB: "with Style",
+    tagline: "Luxury. Culture. Lifestyle. Around the World.",
+    cta: "Discover More",
+    featured: "Featured",
+  },
+  pillars: {
+    air: {
+      title: "Air",
+      blurb: "Aviation, private jets and city escapes.",
+    },
+    land: {
+      title: "Land",
+      blurb: "Destinations, hotels, culture and road trips.",
+    },
+    water: {
+      title: "Water",
+      blurb: "Yachting, cruises and island experiences.",
+    },
+    taste: {
+      title: "Taste",
+      blurb: "Fine dining, wine and culinary journeys.",
+    },
+  },
+  quotes: {
+    left: "We don’t just travel to see places, we travel to see differently.",
+    about:
+      "G·Travel is a digital magazine dedicated to the art of travel, culture, lifestyle and the people who inspire the way we explore the world.",
+    right:
+      "Style is not about what you wear, it’s about how you experience.",
   },
   latest: {
     kicker: "The Latest",
@@ -208,6 +249,35 @@ const sq: Dictionary = {
     nextSlide: "Artikulli tjetër",
     goToSlide: "Shko te artikulli",
     scroll: "Lëviz",
+    titleA: "Udhëto",
+    titleB: "me Stil",
+    tagline: "Luks. Kulturë. Stil Jete. Anembanë Botës.",
+    cta: "Zbulo më Shumë",
+    featured: "E Zgjedhur",
+  },
+  pillars: {
+    air: {
+      title: "Ajër",
+      blurb: "Aviacion, avionë privatë dhe arratisje urbane.",
+    },
+    land: {
+      title: "Tokë",
+      blurb: "Destinacione, hotele, kulturë dhe udhëtime rrugore.",
+    },
+    water: {
+      title: "Ujë",
+      blurb: "Jahte, lundrime dhe përvoja ishujsh.",
+    },
+    taste: {
+      title: "Shije",
+      blurb: "Gastronomi e lartë, verë dhe udhëtime kulinarie.",
+    },
+  },
+  quotes: {
+    left: "Nuk udhëtojmë thjesht për të parë vende — udhëtojmë për të parë ndryshe.",
+    about:
+      "G·Travel është një revistë digjitale kushtuar artit të udhëtimit, kulturës, stilit të jetës dhe njerëzve që frymëzojnë mënyrën si e eksplorojmë botën.",
+    right: "Stili nuk është ajo që vesh — është mënyra si e përjeton.",
   },
   latest: {
     kicker: "Më të Rejat",
