@@ -31,7 +31,7 @@ jobs:
           cache: npm
 
       - name: Pin npm
-        run: npm install -g npm@9.6.3
+        run: npm install -g npm@11
 
       - name: Install dependencies
         run: |
